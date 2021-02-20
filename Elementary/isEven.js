@@ -1,6 +1,7 @@
 'use strict';
 
 const url = 'https://js.checkio.org/en/mission/is-even/';
+
 const assert = newFunction();
 // const assert = require('assert');
 
