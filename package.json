@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "assert": "^2.0.0",
+    "jshint": "^2.12.0"
+  }
+}
