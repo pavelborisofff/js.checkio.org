@@ -13,8 +13,8 @@ function threeWords(text) {
     return !!text.match(/(^|\s)([a-zA-Z]+(\s|$)){3}/g);
 }
 
-console.log('Example:')
-console.log(threeWords("Hello World hello"))
+console.log('Example:');
+console.log(threeWords("Hello World hello"));
 
 assert.strictEqual(threeWords("Hello World hello"), true);
 assert.strictEqual(threeWords("He is 123 man"), false);
