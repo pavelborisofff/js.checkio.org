@@ -11,29 +11,29 @@ function newFunction() {
 function frequencySort(items) {
     const counts = {};
 
-    // for (let i = 0; i < items.length; i++) {
-    //     const item  = {
-    //         items[i]  (counts[items[i]] + 1) || 1
-    //     }
-    // }
-
-    counts.sort(function(a,b) {
-        return b.count - a.count;
+    items.forEach(item => {
+        if (item in counts) {
+            counts[item]++;
+        } else {
+            counts[item] = 1 / (items.indexOf(item) + 1);
+        }
     });
 
+    items.sort(function(a,b) {
+        return counts[b] - counts[a];
+    });
 
-
-    return [];
+    return items;
 }
 
-console.log('Example:');
+// console.log('Example:');
 console.log(frequencySort([4, 6, 2, 2, 6, 4, 4, 4]));
 
 // These "asserts" are used for self-checking and not for an auto-testing
-assert.deepEqual(frequencySort([4, 6, 2, 2, 6, 4, 4, 4]), [4, 4, 4, 4, 6, 6, 2, 2]);
-assert.deepEqual(frequencySort(['bob', 'bob', 'carl', 'alex', 'bob']), ['bob', 'bob', 'bob', 'carl', 'alex']);
-assert.deepEqual(frequencySort([17, 99, 42]), [17, 99, 42]);
-assert.deepEqual(frequencySort([]), []);
-assert.deepEqual(frequencySort([1]), [1]);
+assert.deepStrictEqual(frequencySort([4, 6, 2, 2, 6, 4, 4, 4]), [4, 4, 4, 4, 6, 6, 2, 2]);
+assert.deepStrictEqual(frequencySort(['bob', 'bob', 'carl', 'alex', 'bob']), ['bob', 'bob', 'bob', 'carl', 'alex']);
+assert.deepStrictEqual(frequencySort([17, 99, 42]), [17, 99, 42]);
+assert.deepStrictEqual(frequencySort([]), []);
+assert.deepStrictEqual(frequencySort([1]), [1]);
 
 console.log("Coding complete? Click 'Check' to earn cool rewards!");
