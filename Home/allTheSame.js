@@ -16,7 +16,7 @@ function allTheSame(elements) {
 }
 
 
-console.log('Example:')
+console.log('Example:');
 console.log(allTheSame([1, 1, 1]));
 
 // These "asserts" are used for self-checking and not for an auto-testing
