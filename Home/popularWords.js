@@ -21,9 +21,9 @@ function popularWords(text, words) {
 }
 
 
-console.log('Example:')
+console.log('Example:');
 console.log(popularWords(`
 When I was One
 I had just begun
 When I was Two
-I was nearly new`, ['i', 'was', 'three', 'near']))
+I was nearly new`, ['i', 'was', 'three', 'near']));
