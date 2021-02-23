@@ -1,4 +1,3 @@
-
 'use strict';
 
 const url = 'https://js.checkio.org/mission/three-words/';
