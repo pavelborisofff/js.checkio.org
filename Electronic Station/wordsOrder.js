@@ -9,22 +9,27 @@ function newFunction() {
 }
 
 function wordsOrder(text, words) {
-    text = text.split(' ');
+    let wordsSet = new Set(words);
+    console.log(wordsSet);
 
-    const indexes = [];
+    return text.search([...wordsSet].join(' ')) >= 0;
 
-    words.forEach(word => {
-        const idx = text.indexOf(word);
-        if (idx > -1 && !indexes.includes(idx)) {
-            indexes.push(idx);
-        } else {
-            return false;
-        }
-    });
-    console.log(text, words);
-    const res = indexes.join('') == [...indexes].sort().join('');
-    console.log(res);
-    return res;
+    // text = text.split(' ');
+
+    // const indexes = [];
+
+    // words.forEach(word => {
+    //     const idx = text.indexOf(word);
+    //     if (idx > -1 && !indexes.includes(idx)) {
+    //         indexes.push(idx);
+    //     } else {
+    //         return false;
+    //     }
+    // });
+    // console.log(text, words);
+    // const res = indexes.join('') == [...indexes].sort().join('');
+    // console.log(res);
+    // return res;
 }
 
 console.log('Example:');
