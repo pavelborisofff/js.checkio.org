@@ -5,31 +5,29 @@ const url = 'https://js.checkio.org/mission/words-order/';
 const assert = newFunction();
 
 function newFunction() {
-    return require('assert');
+  return require('assert');
 }
 
 function wordsOrder(text, words) {
-    let wordsSet = new Set(words);
-    console.log(wordsSet);
+  if (new Set(words).size != words.length) return false;
 
-    return text.search([...wordsSet].join(' ')) >= 0;
+  let lastWordIndex = -1;
 
-    // text = text.split(' ');
+  for (let i = 0; i < words.length; i++) {
+    const index = text.split(' ').indexOf(words[i]);
 
-    // const indexes = [];
+    if (index < 0) {
+      return false;
+    }
 
-    // words.forEach(word => {
-    //     const idx = text.indexOf(word);
-    //     if (idx > -1 && !indexes.includes(idx)) {
-    //         indexes.push(idx);
-    //     } else {
-    //         return false;
-    //     }
-    // });
-    // console.log(text, words);
-    // const res = indexes.join('') == [...indexes].sort().join('');
-    // console.log(res);
-    // return res;
+    if (lastWordIndex < index) {
+      lastWordIndex = index;
+    } else {
+      return false;
+    }
+  }
+
+  return true;
 }
 
 console.log('Example:');
@@ -39,18 +37,13 @@ console.log(wordsOrder('hi world im here', ['world', 'here']));
 assert.strictEqual(wordsOrder('hi world im here', ['world', 'here']), true);
 assert.strictEqual(wordsOrder('hi world im here', ['here', 'world']), false);
 assert.strictEqual(wordsOrder('hi world im here', ['world']), true);
-assert.strictEqual(wordsOrder('hi world im here',
-    ['world', 'here', 'hi']), false);
-assert.strictEqualstrictEqual(wordsOrder('hi world im here',
-    ['world', 'im', 'here']), true);
-assert.strictEqual(wordsOrder('hi world im here',
-    ['world', 'hi', 'here']), false);
+assert.strictEqual(wordsOrder('hi world im here', ['world', 'here', 'hi']), false);
+assert.strictEqual(wordsOrder('hi world im here',['world', 'im', 'here']), true);
+assert.strictEqual(wordsOrder('hi world im here', ['world', 'hi', 'here']), false);
 assert.strictEqual(wordsOrder('hi world im here', ['world', 'world']), false);
-assert.strictEqual(wordsOrder('hi world im here',
-    ['country', 'world']), false);
+assert.strictEqual(wordsOrder('hi world im here', ['country', 'world']), false);
 assert.strictEqual(wordsOrder('hi world im here', ['wo', 'rld']), false);
 assert.strictEqual(wordsOrder('', ['world', 'here']), false);
-assert.strictEqual(wordsOrder('hi world world im here',
-    ['world', 'world']), false);
+assert.strictEqual(wordsOrder('hi world world im here', ['world', 'world']), false);
 
 console.log("Coding complete? Click 'Check' to earn cool rewards!");
