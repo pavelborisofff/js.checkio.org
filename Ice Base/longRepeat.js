@@ -10,7 +10,7 @@ function newFunction() {
 
 function longRepeat(line) {
     // your code here
-    return line.match(/(.)\1*/g).sort((a, b) => b.length - a.length)[0].length;
+    return (line.length > 0) ? line.match(/(.)\1*/g).sort((a, b) => b.length - a.length)[0].length : 0;
 }
 
 console.log('Example:');
